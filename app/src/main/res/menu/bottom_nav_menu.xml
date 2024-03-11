@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_drug"
+        android:icon="@drawable/drug"
+        android:title="@string/title_Drugs" />
+
+    <item
+        android:id="@+id/navigation_donation"
+        android:icon="@drawable/donation"
+        android:title="@string/title_Donations" />
+
+    <item
+        android:id="@+id/navigation_vets"
+        android:icon="@drawable/vets"
+        android:title="@string/title_Vets" />
+
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/account"
+        android:title="@string/title_Account" />
+
+</menu>

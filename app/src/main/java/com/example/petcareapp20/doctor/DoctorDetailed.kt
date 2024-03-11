@@ -1,0 +1,193 @@
+package com.example.petcareapp20.doctor
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.CalendarView
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.example.petcareapp20.HomeService.MainDoctorLists
+import com.example.petcareapp20.R
+import com.example.petcareapp20.retrofit.DoctorCallList
+import com.example.petcareapp20.retrofit.DoctorCardInfo
+import com.example.petcareapp20.retrofit.DoctorDetailService
+import com.example.petcareapp20.zego.CallActivity
+import com.google.android.material.button.MaterialButton
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import java.util.Calendar
+import kotlin.random.Random
+
+class DoctorDetailed : AppCompatActivity() {
+
+    private var selectedButtonId: Int = -1
+    private val appID:Long =1202808636
+    private val appSign:String ="075249572970ba3a5b86744d68f540e671ba491bf88a42a561c5000ed31fdfd9"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_doctor_detailed)
+
+        val doctorId = intent.getStringExtra("doctorId")
+        if (doctorId != null) {
+            fetchDoctorDetails(doctorId)
+        } else {
+            // Handle error
+            Toast.makeText(this, "Error: Doctor ID not found", Toast.LENGTH_SHORT).show()
+        }
+
+        val backvetrecycle = findViewById<ImageView>(R.id.backvetrecycle)
+        backvetrecycle.setOnClickListener {
+            val intent = Intent(this, MainDoctorLists::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+            finish()
+        }
+
+        val calendarView = findViewById<View>(R.id.calendar_view) as CalendarView
+        val today: Calendar = Calendar.getInstance()
+        calendarView.minDate = today.getTimeInMillis()
+        today.add(Calendar.DAY_OF_MONTH, 6) // Add 5 days to today's date
+        calendarView.maxDate = today.getTimeInMillis()
+
+        //set time
+        val button4 = findViewById<MaterialButton>(R.id.button4)
+        val button5 = findViewById<MaterialButton>(R.id.button5)
+        val button6 = findViewById<MaterialButton>(R.id.button6)
+
+        val buttons2 = listOf(button4, button5, button6)
+
+        buttons2.forEach { button ->
+            button.setOnClickListener {
+                val buttonId = button.id
+                if (buttonId != selectedButtonId) {
+                    setSelectedButton(buttonId)
+                }
+            }
+        }
+
+        val marqueeTextView = findViewById<TextView>(R.id.my_marquee_text)
+        marqueeTextView.isSelected = true
+        marqueeTextView.requestFocus()
+
+        //
+        //zego cloud
+        val userID: String = generateUserID()
+        val userName: String = userID + "_Name"
+        val callID: String = "test_call_id"
+
+        val video = findViewById<MaterialButton>(R.id.videoButton)
+        video.setOnClickListener {
+            val intent = Intent(this@DoctorDetailed, CallActivity::class.java)
+            intent.putExtra("appID", appID)
+            intent.putExtra("appSign", appSign)
+            intent.putExtra("userID", userID)
+            intent.putExtra("userName", userName)
+            intent.putExtra("callID", callID)
+            startActivity(intent)
+        }
+    }
+
+    private fun generateUserID(): String {
+        val builder = StringBuilder()
+        val random: Random = Random(8)
+        while (builder.length < 5) {
+            val nextInt: Int = random.nextInt(10)
+            if (builder.length == 0 && nextInt == 0) {
+                continue
+            }
+            builder.append(nextInt)
+        }
+        return builder.toString()
+    }
+
+    private fun fetchDoctorDetails(doctorId: String) {
+        val call: Call<DoctorCallList> = DoctorDetailService.doctorInstance.getVetInfo(1,"us")
+        call.enqueue(object : Callback<DoctorCallList> {
+            override fun onResponse(call: Call<DoctorCallList>, response: Response<DoctorCallList>) {
+                if (response.isSuccessful) {
+                    val doctorList = response.body()
+                    if (doctorList != null) {
+                        val matchingDoctor = doctorList.vetinfos.find { it._id == doctorId }
+                        if (matchingDoctor != null) {
+                            // Update UI with matchingDoctor data
+                            updateUI(matchingDoctor)
+                        } else {
+                            // Handle error
+                            Toast.makeText(this@DoctorDetailed, "Error: Doctor not found", Toast.LENGTH_SHORT).show()
+                        }
+                    } else {
+                        // Handle error: empty response
+                        Toast.makeText(this@DoctorDetailed, "Error: No data found", Toast.LENGTH_SHORT).show()
+                    }
+                } else {
+                    // Handle error: API call failed
+                    Toast.makeText(this@DoctorDetailed, "Error: Request failed", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<DoctorCallList>, t: Throwable) {
+                // Handle network or other errors
+                Toast.makeText(this@DoctorDetailed, "Error: Network error", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun updateUI(matchingDoctor: DoctorCardInfo) {
+
+        val vet_image = findViewById<ImageView>(R.id.vet_imaged)
+        Glide.with(this).load(matchingDoctor.urlToImage).into(vet_image)
+
+        val vet_name = findViewById<TextView>(R.id.vet_named)
+        vet_name.text = matchingDoctor.vet_name
+
+        val clinic_name = findViewById<TextView>(R.id.clinic_named)
+        clinic_name.text = matchingDoctor.clinic_name
+
+        val clinic_address = findViewById<TextView>(R.id.clinic_addressd)
+        clinic_address.text = matchingDoctor.clinic_address
+
+        val clinic_phone = findViewById<TextView>(R.id.clinic_phoned)
+        clinic_phone.text = matchingDoctor.clinic_phone
+
+        val gender = findViewById<TextView>(R.id.genderd)
+        gender.text = matchingDoctor.gender
+
+        val service_years = findViewById<TextView>(R.id.service_yearsd)
+        service_years.text = matchingDoctor.service_years
+
+        val alumni_of_uni = findViewById<TextView>(R.id.alumni_of_unid)
+        alumni_of_uni.text = matchingDoctor.alumni_of_uni
+
+        val price = findViewById<TextView>(R.id.priced)
+        price.text = matchingDoctor.price
+
+        val vet_age = findViewById<TextView>(R.id.vet_aged)
+        vet_age.text = matchingDoctor.vet_age
+
+        val chat_price = findViewById<TextView>(R.id.chat_priced)
+        chat_price.text = matchingDoctor.chat_price
+
+        val video_price = findViewById<TextView>(R.id.video_priced)
+        video_price.text = matchingDoctor.video_price
+
+        val vet_rating = findViewById<TextView>(R.id.vet_rating)
+        vet_rating.text = matchingDoctor.vet_rating
+    }
+
+    private fun setSelectedButton(buttonId: Int) {
+        val previousButton = findViewById<Button>(selectedButtonId)
+        val newButton = findViewById<Button>(buttonId)
+
+        previousButton?.isSelected = false
+        newButton.isSelected = true
+        selectedButtonId = buttonId
+    }
+}

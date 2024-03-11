@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.petcareapp20">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/app_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/app_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PetCareApp20"
+        tools:targetApi="31">
+        <activity
+            android:name=".zego.VideoCallActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".zego.CallActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".doctor.DoctorDetailed"
+            android:exported="false" />
+        <activity
+            android:name=".HomeService.MainDoctorLists"
+            android:exported="false" />
+        <activity
+            android:name=".HomeService.AllServicesTogether"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPassword"
+            android:exported="false" />
+        <activity
+            android:name=".drug.DrugTxSuccessful"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAKfURpC_er7-nAZIx53ay56FmHlMJuQXE" />
+
+        <activity
+            android:name=".doctormenus.Doctor"
+            android:exported="false" />
+        <activity
+            android:name=".HomePage"
+            android:exported="false" />
+        <activity
+            android:name=".bubble.ContinuePay"
+            android:exported="false" />
+        <activity
+            android:name=".bubble.BubbleCheckout"
+            android:exported="false" />
+        <activity
+            android:name=".bubble.SetSchedule"
+            android:exported="false" />
+        <activity
+            android:name=".bubble.SearchHealth"
+            android:exported="false" />
+        <activity
+            android:name=".bubble.TxSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".drug.NextPayment"
+            android:exported="false" />
+        <activity
+            android:name=".drug.DrugCheckout"
+            android:exported="false" />
+        <activity
+            android:name=".drug.DetailDrug"
+            android:exported="false" />
+        <activity
+            android:name=".drug.BlackDrug"
+            android:exported="false" />
+        <activity
+            android:name=".donation.DonationSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".donation.PickNominalSuccess"
+            android:exported="false" />
+        <activity
+            android:name=".donation.PayDonation"
+            android:exported="false" />
+        <activity
+            android:name=".mainhome.HomeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+    </application>
+
+</manifest>

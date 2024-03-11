@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Pet Care</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="food">FRESH FOOD</string>
+    <string name="delivery">FAST DELIVERY</string>
+    <string name="payment">EASY PAYMENT</string>
+    <string name="internet">It is very important for the customer to follow the customer\'s training, but this is what happens at the same time.</string>
+    <string name="title_activity_home">home</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_Home_page">Home page</string>
+    <string name="title_Drugs">Drugs</string>
+    <string name="title_Donations">Donations</string>
+    <string name="title_Vets">Vets</string>
+    <string name="title_Account">Account</string>
+    <string name="title_activity_fsdaffgfge">fsdaffgfge</string>
+    <string name="search_hint">Search</string>
+    <string name="reset_password_button">Send Reset Link</string>
+    <string name="reset_password_instructions">We\'ll email you instructions on how to reset your password. Please type in your email below.</string>
+</resources>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_viewPagerFragment"
+            app:destination="@id/viewPagerFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/viewPagerFragment"
+        android:name="com.example.petcareapp20.onboarding.ViewPagerFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_view_pager">
+
+        <action
+            android:id="@+id/action_viewPagerFragment_to_loginActivity"
+            app:destination="@id/loginActivity" />
+
+        <action
+            android:id="@+id/action_viewPagerFragment_to_registerActivity"
+            app:destination="@id/registerActivity" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/locationActivity"
+        android:label="LocationActivity"
+        tools:layout="@layout/fragment_location"/>
+
+    <action
+        android:id="@+id/action_login_to_location"
+        app:destination="@id/locationActivity"
+        app:popUpTo="@id/viewPagerFragment"
+        app:popUpToInclusive="true" />
+
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.example.petcareapp20.mainhome.HomeActivity"
+        android:label="HomeActivity"
+        tools:layout="@layout/activity_home"/>
+
+    <action
+        android:id="@+id/action_home_to_vets"
+        app:destination="@id/mainDoctorLists"
+        app:popUpTo="@id/homeActivity"
+        app:popUpToInclusive="true"/>
+
+    <action
+        android:id="@+id/action_continue_to_mainhome"
+        app:destination="@id/homeActivity"
+        app:popUpTo="@id/viewPagerFragment"
+        app:popUpToInclusive="true" />
+
+    <fragment
+        android:id="@+id/logout"
+        android:label="activity_logout"
+        tools:layout="@layout/activity_login" />
+
+    <action
+        android:id="@+id/action_logout_to_login"
+        app:destination="@id/logout"
+        app:popUpTo="@id/viewPagerFragment"
+        app:popUpToInclusive="true" />
+    <activity
+        android:id="@+id/registerActivity"
+        android:name="com.example.petcareapp20.RegisterActivity"
+        android:label="activity_register"
+        tools:layout="@layout/activity_register" />
+    <activity
+        android:id="@+id/loginActivity"
+        android:name="com.example.petcareapp20.LoginActivity"
+        android:label="activity_login"
+        tools:layout="@layout/activity_login" />
+    <activity
+        android:id="@+id/mainDoctorLists"
+        android:name="com.example.petcareapp20.HomeService.MainDoctorLists"
+        android:label="activity_main_doctor_lists"
+        tools:layout="@layout/activity_main_doctor_lists" />
+
+</navigation>

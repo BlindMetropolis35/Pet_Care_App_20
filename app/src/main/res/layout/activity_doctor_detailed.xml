@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".doctor.DoctorDetailed"
+      android:background="@drawable/gradient_top_light_to_bottom_dark">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+      <ImageView
+          android:id="@+id/vet_imaged"
+          android:layout_width="500dp"
+          android:layout_height="300dp"
+          android:scaleType="centerCrop"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageButton
+          android:id="@+id/backvetrecycle"
+          android:layout_width="43dp"
+          android:layout_height="45dp"
+          android:layout_marginStart="20dp"
+          android:layout_marginTop="48dp"
+          android:contentDescription="@string/app_name"
+          android:src="@drawable/backarrow"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+          android:id="@+id/vet_rate"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="242dp"
+          android:layout_marginTop="42dp"
+          android:layout_marginEnd="24dp"
+          android:src="@drawable/rating"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.505"
+          app:layout_constraintTop_toTopOf="parent" />
+
+      <ImageView
+          android:layout_width="42dp"
+          android:layout_height="42dp"
+          android:layout_marginEnd="24dp"
+          android:layout_marginTop="78dp"
+          android:background="@drawable/like_button_icon"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/vet_rate" />
+
+      <TextView
+          android:id="@+id/vet_rating"
+          android:layout_width="22dp"
+          android:layout_height="15dp"
+          android:layout_marginTop="2dp"
+          android:layout_marginEnd="22dp"
+          android:textAlignment="center"
+          android:textColor="@color/black"
+          android:text="4.0"
+          app:layout_constraintEnd_toEndOf="@+id/vet_rate"
+          app:layout_constraintTop_toTopOf="@+id/vet_rate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="200dp"
+      android:background="@color/black"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:backgroundTint="@color/lightGray">
+
+    <TextView
+        android:id="@+id/courtesy_title"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:text="Dr."
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/vet_named"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="8dp"
+        android:gravity="left"
+        android:textColor="@color/white"
+        android:textIsSelectable="true"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        app:layout_constraintEnd_toStartOf="@+id/ic_service_year"
+        app:layout_constraintStart_toEndOf="@+id/courtesy_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/service_yearsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="4dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/service_year"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/service_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="24dp"
+        android:text="Years"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ic_service_year"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/bag"
+        android:background="@color/darkGray"
+        app:layout_constraintEnd_toStartOf="@+id/service_yearsd"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/veterinary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Veterinary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/courtesy_title"
+        app:layout_constraintTop_toBottomOf="@+id/vet_named" />
+
+    <ImageView
+        android:id="@+id/ic_clinic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/rumahsakit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/veterinary" />
+
+
+    <TextView
+        android:id="@+id/clinic_named"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:textColor="@color/white"
+        android:textIsSelectable="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/ic_clinic"
+        app:layout_constraintTop_toBottomOf="@+id/veterinary" />
+
+    <TextView
+        android:id="@+id/clinic_addressd"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ic_clinic" />
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/graduation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/clinic_addressd" />
+
+    <TextView
+        android:id="@+id/alumni_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="8dp"
+        android:text="Alumni"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toBottomOf="@+id/clinic_addressd" />
+
+
+    <TextView
+        android:id="@+id/alumni_of_unid"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/alumni_name" />
+
+    <TextView
+        android:id="@+id/set_schedule"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:text="Set a Schedule"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/alumni_of_unid" />
+
+    <LinearLayout
+        android:id="@+id/option_set_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/set_schedule">
+
+      <CalendarView
+          android:id="@+id/calendar_view"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:background="@drawable/calender_bg" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/set_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="18dp"
+        android:text="Set time"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/option_set_schedule" />
+
+    <LinearLayout
+        android:id="@+id/option_set_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/set_time">
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/button4"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="10sp"
+          android:text="07.00 AM-10.00 AM"
+          android:backgroundTint="@color/button_state_colors"
+          android:textColor="@drawable/consult_text_selector"/>
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/button5"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="10sp"
+          android:layout_marginStart="2dp"
+          android:text="11.00 AM-01.00 PM"
+          android:backgroundTint="@color/button_state_colors"
+          android:textColor="@drawable/consult_text_selector"/>
+
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/button6"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:textSize="10sp"
+          android:layout_marginStart="2dp"
+          android:text="03.00 AM-05.00 AM"
+          android:backgroundTint="@color/button_state_colors"
+          android:textColor="@drawable/consult_text_selector"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout21"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/option_set_time"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_toEndOf="@+id/option_set_time"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/option_set_time">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:background="@color/darkGray"
+            android:src="@drawable/ic_phone_black_24dp"
+            tools:layout_editor_absoluteX="54dp"
+            tools:layout_editor_absoluteY="495dp" />
+
+
+        <TextView
+            android:id="@+id/clinic_phoned"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:textIsSelectable="true"
+            android:textSize="14sp"
+            android:text=""
+            android:textStyle="bold"
+            android:gravity="center|left"
+            tools:layout_editor_absoluteX="110dp"
+            tools:layout_editor_absoluteY="495dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/consult_fees"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="Consultation Fee"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_marquee_text" />
+
+    <TextView
+        android:id="@+id/priced"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:textColor="@color/green"
+        android:textIsSelectable="true"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/consult_fees" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/chatButton"
+        android:layout_width="180dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/voicecall_button_state"
+        android:gravity="center"
+        android:paddingEnd="55dp"
+        android:text="Voice Call @"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_marquee_text" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/videoButton"
+        android:layout_width="180dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/videocall_button_state"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="Video Call @"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatButton" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:src="@drawable/baseline_female_24"
+        android:background="@color/darkGray"
+        app:layout_constraintEnd_toStartOf="@+id/genderd"
+        app:layout_constraintTop_toBottomOf="@+id/service_year" />
+
+    <TextView
+        android:id="@+id/genderd"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:textAllCaps="true"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/service_year" />
+
+    <TextView
+        android:id="@+id/vet_aged"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/genderd" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Age:"
+        app:layout_constraintEnd_toStartOf="@+id/vet_aged"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <TextView
+        android:id="@+id/chat_priced"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif"
+        android:layout_marginStart="80dp"
+        android:textAlignment="center"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/chatButton"
+        app:layout_constraintStart_toStartOf="@+id/chatButton"
+        app:layout_constraintTop_toTopOf="@+id/chatButton" />
+
+    <TextView
+        android:id="@+id/video_priced"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="sans-serif"
+        android:text="345"
+        android:textAlignment="center"
+        android:textColor="@color/lightRed"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/videoButton"
+        app:layout_constraintHorizontal_bias="0.939"
+        app:layout_constraintStart_toStartOf="@+id/videoButton"
+        app:layout_constraintTop_toTopOf="@+id/videoButton" />
+
+    <TextView
+        android:id="@+id/my_marquee_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="Please note the prices are listed according to vet availability. Prices are subject to change on vet demand.Applicable taxes calculated at checkout"
+        android:textColor="@color/lightRed"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout21" />
+
+    <Button
+        android:id="@+id/bookButton"
+        android:layout_width="148dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/booknow_button_state"
+        android:gravity="center"
+        android:text="Book Now"
+        android:textAllCaps="true"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  </RelativeLayout>
+  
+</ScrollView>
