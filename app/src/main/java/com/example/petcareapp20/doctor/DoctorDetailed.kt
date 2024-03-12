@@ -1,7 +1,9 @@
 package com.example.petcareapp20.doctor
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.CalendarView
@@ -16,12 +18,16 @@ import com.example.petcareapp20.R
 import com.example.petcareapp20.retrofit.DoctorCallList
 import com.example.petcareapp20.retrofit.DoctorCardInfo
 import com.example.petcareapp20.retrofit.DoctorDetailService
-import com.example.petcareapp20.zego.CallActivity
 import com.google.android.material.button.MaterialButton
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationConfig
+import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService
+import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+import com.zegocloud.uikit.service.defines.ZegoUIKitUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.Calendar
+import java.util.Locale
 import kotlin.random.Random
 
 class DoctorDetailed : AppCompatActivity() {
@@ -80,25 +86,27 @@ class DoctorDetailed : AppCompatActivity() {
         //
         //zego cloud
         val userID: String = generateUserID()
-        val userName: String = userID + "_Name"
+        val userName: String = buildString {
+            append(userID + "_")
+            append(Build.MANUFACTURER.lowercase(Locale.getDefault()).toString())
+        }
         val callID: String = "test_call_id"
 
-        val video = findViewById<MaterialButton>(R.id.videoButton)
-        video.setOnClickListener {
-            val intent = Intent(this@DoctorDetailed, CallActivity::class.java)
-            intent.putExtra("appID", appID)
-            intent.putExtra("appSign", appSign)
-            intent.putExtra("userID", userID)
-            intent.putExtra("userName", userName)
-            intent.putExtra("callID", callID)
-            startActivity(intent)
+        if (userID != null) {
+            if (userName != null) {
+                initCallInviteService(appID, appSign, userID, userName)
+            }
         }
+
+//        initVoiceButton()
+//        initVideoButton()
+
     }
 
     private fun generateUserID(): String {
         val builder = StringBuilder()
-        val random: Random = Random(8)
-        while (builder.length < 5) {
+        val random = Random(8)
+        while (builder.length < 15) {
             val nextInt: Int = random.nextInt(10)
             if (builder.length == 0 && nextInt == 0) {
                 continue
@@ -119,6 +127,8 @@ class DoctorDetailed : AppCompatActivity() {
                         if (matchingDoctor != null) {
                             // Update UI with matchingDoctor data
                             updateUI(matchingDoctor)
+                            initVoiceButton(matchingDoctor)
+                            initVideoButton(matchingDoctor)
                         } else {
                             // Handle error
                             Toast.makeText(this@DoctorDetailed, "Error: Doctor not found", Toast.LENGTH_SHORT).show()
@@ -154,8 +164,15 @@ class DoctorDetailed : AppCompatActivity() {
         val clinic_address = findViewById<TextView>(R.id.clinic_addressd)
         clinic_address.text = matchingDoctor.clinic_address
 
-        val clinic_phone = findViewById<TextView>(R.id.clinic_phoned)
-        clinic_phone.text = matchingDoctor.clinic_phone
+//        phone hidden
+        val visiblePart = findViewById<TextView>(R.id.clinic_phone_visible)
+        val maskedPart = findViewById<TextView>(R.id.clinic_phone_masked)
+
+        val phoneNumber = matchingDoctor.clinic_phone
+        val visibleNumber = phoneNumber.substring(0, phoneNumber.length / 2)
+
+        visiblePart.text = visibleNumber
+        maskedPart.text = "xxxxx"
 
         val gender = findViewById<TextView>(R.id.genderd)
         gender.text = matchingDoctor.gender
@@ -172,11 +189,11 @@ class DoctorDetailed : AppCompatActivity() {
         val vet_age = findViewById<TextView>(R.id.vet_aged)
         vet_age.text = matchingDoctor.vet_age
 
-        val chat_price = findViewById<TextView>(R.id.chat_priced)
+        /*val chat_price = findViewById<TextView>(R.id.chat_priced)
         chat_price.text = matchingDoctor.chat_price
 
         val video_price = findViewById<TextView>(R.id.video_priced)
-        video_price.text = matchingDoctor.video_price
+        video_price.text = matchingDoctor.video_price*/
 
         val vet_rating = findViewById<TextView>(R.id.vet_rating)
         vet_rating.text = matchingDoctor.vet_rating
@@ -189,5 +206,41 @@ class DoctorDetailed : AppCompatActivity() {
         previousButton?.isSelected = false
         newButton.isSelected = true
         selectedButtonId = buttonId
+    }
+
+    private fun initCallInviteService(appID: Long, appSign: String, userID: String, userName: String) {
+        val callInvitationConfig = ZegoUIKitPrebuiltCallInvitationConfig()
+        ZegoUIKitPrebuiltCallInvitationService.init(
+            application, appID, appSign, userID, userName, callInvitationConfig
+        )
+    }
+
+    private fun initVoiceButton(matchingDoctor: DoctorCardInfo) {
+        val newVoiceCall = findViewById<ZegoSendCallInvitationButton>(R.id.chatButton)
+        newVoiceCall.setIsVideoCall(false)
+        newVoiceCall.setOnClickListener(View.OnClickListener {
+            val targetUserID: String = matchingDoctor._id
+            val users = targetUserID.split(",").map { userID ->
+                ZegoUIKitUser(userID)
+            }
+            newVoiceCall.setInvitees(users)
+        })
+    }
+
+    private fun initVideoButton(matchingDoctor: DoctorCardInfo) {
+        val newVideoCall = findViewById<ZegoSendCallInvitationButton>(R.id.videoButton)
+        newVideoCall.setIsVideoCall(true)
+        newVideoCall.setOnClickListener(View.OnClickListener {
+            val targetUserID: String = matchingDoctor._id
+            val users = targetUserID.split(",").map { userID ->
+                ZegoUIKitUser(userID)
+            }
+            newVideoCall.setInvitees(users)
+        })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        ZegoUIKitPrebuiltCallInvitationService.unInit()
     }
 }

@@ -19,7 +19,9 @@
     <color name="mediumGray">#868686</color>
     <color name="lightGray">#101010</color>
     <color name="yellow">#FFD700</color>
-    <color name="green">#228B22 </color>
+    <color name="green">#228B22</color>
+    <color name="lightGreen">#90EE90</color>
+    <color name="paleGreen">#98FB98</color>
     <color name="button_color_dimmed">#37B299</color>
     <color name="button_color_normal">#00FFCB</color>
 </resources>
