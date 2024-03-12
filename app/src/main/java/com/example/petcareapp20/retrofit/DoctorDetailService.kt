@@ -6,11 +6,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val BASE_URL="https://327f708e-7364-43a5-b52a-933c67013e8c.mock.pstmn.io/"
+const val BASE_URL="https://b18a7684-164e-4653-879d-6730f8ee28a6.mock.pstmn.io"
 //const val API_KEY=""
 
 interface DoctorInterface{
-    @GET("saulinfo")
+    @GET("vetinfo")
     fun getVetInfo(@Query("id") id:Int, @Query("country") country:String): Call<DoctorCallList>
 }
 

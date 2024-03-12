@@ -30,7 +30,7 @@ import retrofit2.Response
 
 class DoctorFragment : Fragment() {
 
-    lateinit var adapter: MainDoctorListAdapter
+    lateinit var adapter: DoctorFragmentAdapter
     private var doctorCardInfo = mutableListOf<DoctorCardInfo>()
     private var searchQuery = ""
     private lateinit var refreshButton: MaterialButton
@@ -42,7 +42,7 @@ class DoctorFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_doctor, container, false)
 
-        adapter = MainDoctorListAdapter(requireActivity(), doctorCardInfo)
+        adapter = DoctorFragmentAdapter(requireActivity(), doctorCardInfo)
         val doctorcards = view.findViewById<RecyclerView>(R.id.doctorcards)
         doctorcards.adapter = adapter
         doctorcards.layoutManager = LinearLayoutManager(requireActivity())
