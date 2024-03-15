@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
@@ -20,6 +22,16 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+        val APP_ID = properties.getProperty("MY_Zego_APP_ID")
+        val APP_SIGN = properties.getProperty("MY_Zego_APP_SIGN")
+        val BASE_URL= properties.getProperty("BASE_URL")
+
+        buildConfigField("long", "APP_ID", APP_ID)
+        buildConfigField("String", "APP_SIGN", APP_SIGN)
+        buildConfigField("String", "BASE_URL", BASE_URL)
     }
 
     buildTypes {
@@ -42,6 +54,7 @@ android {
         compose = true
         dataBinding = true
         viewBinding = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"

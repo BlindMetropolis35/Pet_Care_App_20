@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -55,6 +56,18 @@ class DoctorFragmentAdapter(val context: Context, var vetinfos: List<DoctorCardI
             intent.putExtra("doctorId", vetinfos._id)
             context.startActivity(intent)
         }
+
+        holder.chatButton.setOnClickListener {
+            val intent = Intent(context, DoctorDetailed::class.java)
+            intent.putExtra("doctorId", vetinfos._id)
+            context.startActivity(intent)
+        }
+
+        holder.videoButton.setOnClickListener {
+            val intent = Intent(context, DoctorDetailed::class.java)
+            intent.putExtra("doctorId", vetinfos._id)
+            context.startActivity(intent)
+        }
     }
 
     inner class DoctorCardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -67,5 +80,7 @@ class DoctorFragmentAdapter(val context: Context, var vetinfos: List<DoctorCardI
         var clinic_phone = itemView.findViewById<TextView>(R.id.clinic_phone)
         var specialization = itemView.findViewById<TextView>(R.id.specialization)
         var doctorDetailed = itemView.findViewById<LinearLayout>(R.id.doctorDetailed)
+        var chatButton = itemView.findViewById<Button>(R.id.chatButton)
+        var videoButton = itemView.findViewById<Button>(R.id.videoButton)
     }
 }
