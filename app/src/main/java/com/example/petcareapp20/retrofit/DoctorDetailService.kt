@@ -1,12 +1,13 @@
 package com.example.petcareapp20.retrofit
 
+import com.example.petcareapp20.BuildConfig
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val BASE_URL="https://b18a7684-164e-4653-879d-6730f8ee28a6.mock.pstmn.io"
+const val BASE_URL= BuildConfig.BASE_URL
 //const val API_KEY=""
 
 interface DoctorInterface{

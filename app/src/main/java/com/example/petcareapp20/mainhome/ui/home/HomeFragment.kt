@@ -27,7 +27,6 @@ import retrofit2.Response
 
 class HomeFragment : Fragment() {
 
-    private lateinit var searchView: SearchView
     private var doctorList = mutableListOf<VetData>()
     private var shuffleddoctorList = mutableListOf<VetData>()
     private lateinit var doctorImageViews: Array<ImageView>
@@ -167,9 +166,5 @@ class HomeFragment : Fragment() {
         val connectivityManager = context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkInfo = connectivityManager.activeNetworkInfo
         return networkInfo != null && networkInfo.isConnected
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
     }
 }

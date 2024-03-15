@@ -23,6 +23,7 @@ import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationC
 import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationService
 import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
 import com.zegocloud.uikit.service.defines.ZegoUIKitUser
+import com.example.petcareapp20.BuildConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,8 +34,8 @@ import kotlin.random.Random
 class DoctorDetailed : AppCompatActivity() {
 
     private var selectedButtonId: Int = -1
-    private val appID:Long =1202808636
-    private val appSign:String ="075249572970ba3a5b86744d68f540e671ba491bf88a42a561c5000ed31fdfd9"
+    val appID=BuildConfig.APP_ID
+    val appSign=BuildConfig.APP_SIGN
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
