@@ -25,19 +25,24 @@
         android:layout_width="match_parent"
         android:layout_below="@id/textViewTitle"
         app:hintTextColor="@color/white"
+        app:hintAnimationEnabled="true"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp">
+        android:layout_marginBottom="8dp"
+        app:cursorColor="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/lightGray"
+        app:boxStrokeErrorColor="@color/lightRed">
 
         <com.google.android.material.textfield.TextInputEditText
-
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:hint="Email"
+            android:padding="8dp"
             android:textColor="@color/white"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"/>
+            android:inputType="textEmailAddress" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -45,62 +50,80 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:hintTextColor="@color/white"
+        app:hintAnimationEnabled="true"
         android:layout_below="@id/emailTextInputLayout"
         android:layout_marginTop="16dp"
-        app:passwordToggleEnabled="true">
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/mediumGray"
+        app:cursorColor="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/lightGray"
+        app:boxStrokeErrorColor="@color/lightRed">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="42dp"
             android:hint="Password"
-            android:textColor="@color/white"
+            android:padding="8dp"
             android:inputType="textPassword"
-            android:textColorHint="@color/white"
-            android:background="@drawable/edittext_background"
-            android:padding="12dp"
-            android:layout_marginBottom="16dp" />
+            android:textColorHint="@color/lightGray" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="393dp"
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btnCardView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/passwordTextInputLayout"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="2dp"
-        android:background="@drawable/btnstylelogin"
-        android:padding="8dp"
-        android:text="Login"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+        android:backgroundTint="@color/btnlogin"
+        app:cardCornerRadius="50dp"
+        android:layout_marginTop="38dp">
+        
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/btnlogin"
+            android:text="Login"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:textColor="@color/white"
-        android:layout_below="@+id/btnLogin"
+        android:layout_below="@+id/btnCardView"
         android:layout_marginTop="75dp"
+        android:gravity="center"
         android:textAlignment="center"
         android:text="Don't have an account?" />
 
-    <TextView
-        android:id="@+id/textViewSignUp"
-        android:layout_width="395dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardViewSignUp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnLogin"
-        android:layout_alignParentEnd="true"
+        android:layout_below="@id/btnCardView"
         android:layout_marginTop="100dp"
-        android:layout_marginEnd="0dp"
-        android:background="@drawable/btnlogtosign"
-        android:gravity="center"
-        android:padding="12dp"
-        android:text="Create a new account"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:backgroundTint="@color/btnlogtosignup"
+        app:cardCornerRadius="50dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/LogtoSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Create a new account"
+            android:textStyle="bold"
+            android:backgroundTint="@color/btnlogtosignup"
+            android:textColor="@color/black" />
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/forgotPassword"

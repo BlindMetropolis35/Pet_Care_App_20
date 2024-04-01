@@ -44,9 +44,6 @@
             android:value="AIzaSyAKfURpC_er7-nAZIx53ay56FmHlMJuQXE" />
 
         <activity
-            android:name=".doctormenus.Doctor"
-            android:exported="false" />
-        <activity
             android:name=".HomePage"
             android:exported="false" />
         <activity

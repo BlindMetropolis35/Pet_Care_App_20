@@ -11,6 +11,7 @@ import android.widget.Button
 import androidx.viewpager2.widget.ViewPager2
 import com.example.petcareapp20.LoginActivity
 import com.example.petcareapp20.R
+import com.google.android.material.button.MaterialButton
 
 class SecondScreen : Fragment() {
 
@@ -23,13 +24,13 @@ class SecondScreen : Fragment() {
 
         val viewPager =  activity?.findViewById<ViewPager2>(R.id.viewPager)
 
-        val skipbutton2=view.findViewById<Button>(R.id.skipbutton2)
+        val skipbutton2=view.findViewById<MaterialButton>(R.id.skipbutton2)
         skipbutton2.setOnClickListener {
             val intent=Intent(activity,LoginActivity::class.java)
             startActivity(intent)
         }
 
-        val next2=view.findViewById<Button>(R.id.next2)
+        val next2=view.findViewById<MaterialButton>(R.id.next2)
         next2.setOnClickListener {
             viewPager?.currentItem = 2
         }

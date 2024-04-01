@@ -68,13 +68,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.899" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/next1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:background="@drawable/btnstyleregfrag"
+            android:backgroundTint="@color/btnstyleonboard"
             android:text="Next"
             android:textColor="@color/white"
             android:textSize="16sp"
@@ -82,13 +82,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/skipbutton1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="15dp"
-            android:background="@android:color/transparent"
+            android:backgroundTint="@android:color/transparent"
             android:text="Skip"
             android:textColor="@color/yellow"
             android:textStyle="normal"

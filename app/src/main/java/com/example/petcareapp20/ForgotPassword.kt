@@ -10,6 +10,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
@@ -31,7 +32,7 @@ class ForgotPassword : AppCompatActivity() {
             finish()
         }
 
-        val resetPassword=findViewById<Button>(R.id.resetPasswordButton)
+        val resetPassword=findViewById<MaterialButton>(R.id.resetPasswordButton)
         resetPassword.setOnClickListener{
             forgotpass()
         }

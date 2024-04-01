@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petcareapp20.mainhome.HomeActivity
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.auth.User
@@ -24,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
 
         firebaseAuth= FirebaseAuth.getInstance()
 
-        val btnSignup=findViewById<Button>(R.id.btnSignup)
+        val btnSignup=findViewById<MaterialButton>(R.id.btnSignup)
         btnSignup.setOnClickListener{
             signup()
         }

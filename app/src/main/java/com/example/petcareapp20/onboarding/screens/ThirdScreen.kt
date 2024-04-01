@@ -14,6 +14,7 @@ import com.example.petcareapp20.LoginActivity
 import com.example.petcareapp20.R
 import com.example.petcareapp20.RegisterActivity
 import com.example.petcareapp20.mainhome.HomeActivity
+import com.google.android.material.button.MaterialButton
 
 class ThirdScreen : Fragment() {
 
@@ -24,15 +25,15 @@ class ThirdScreen : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_third_screen, container, false)
 
-        val Login=view.findViewById<Button>(R.id.Login)
+        val Login=view.findViewById<MaterialButton>(R.id.Login)
         Login.setOnClickListener {
-            val intent= Intent(activity, LoginActivity::class.java)
+            val intent= Intent(requireActivity(), LoginActivity::class.java)
             startActivity(intent)
         }
 
-        val Register=view.findViewById<Button>(R.id.Register)
+        val Register=view.findViewById<MaterialButton>(R.id.Register)
         Register.setOnClickListener {
-            val intent = Intent(activity, RegisterActivity::class.java)
+            val intent = Intent(requireActivity(), RegisterActivity::class.java)
             startActivity(intent)
         }
 

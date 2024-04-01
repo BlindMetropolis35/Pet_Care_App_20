@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.petcareapp20.donation.PayDonation
 import com.example.petcareapp20.mainhome.HomeActivity
+import com.google.android.material.button.MaterialButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthCredential
 
@@ -37,12 +38,12 @@ class LoginActivity : AppCompatActivity() {
             return
         }
 
-        val btnLogin=findViewById<Button>(R.id.btnLogin)
+        val btnLogin=findViewById<MaterialButton>(R.id.btnLogin)
         btnLogin.setOnClickListener{
             login()
         }
 
-        val btnlogintosignup=findViewById<TextView>(R.id.textViewSignUp)
+        val btnlogintosignup=findViewById<MaterialButton>(R.id.LogtoSignUp)
         btnlogintosignup.setOnClickListener{
             val intent=Intent(this,RegisterActivity::class.java)
             startActivity(intent)
@@ -56,6 +57,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
+
     fun isUserLoggedIn(): Boolean {
         val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
         return sharedPreferences.getBoolean("isLoggedIn", false)

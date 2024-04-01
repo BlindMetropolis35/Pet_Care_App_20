@@ -9,6 +9,5 @@
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:statusBarColor">@color/black</item>
-        <item name="android:button">@style/Theme.MaterialComponents.DayNight.NoActionBar</item>
     </style>
 </resources>
