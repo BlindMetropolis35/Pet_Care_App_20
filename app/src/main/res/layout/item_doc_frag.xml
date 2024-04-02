@@ -177,24 +177,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
 
-            <Button
-                android:id="@+id/chatButton"
-                android:layout_width="216dp"
-                android:layout_margin="0dp"
-                android:text="Voice Call"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/voicecall_button_state"
-                android:layout_height="50dp" />
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/darkGray"
+                android:layout_marginEnd="12dp"
+                android:gravity="center_horizontal">
 
-            <Button
-                android:id="@+id/videoButton"
-                android:backgroundTint="@color/videocall_button_state"
-                android:text="Video Call"
-                android:textColor="@color/black"
-                android:layout_width="216dp"
-                android:layout_height="50dp" />
+                <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+                    android:id="@+id/voiceButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/voicecall_button_state"
+                    android:padding="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@color/darkGray"
+                android:gravity="center_horizontal">
+
+                <com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
+                    android:id="@+id/videoButton"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:backgroundTint="@color/videocall_button_state"
+                    android:padding="10dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

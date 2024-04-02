@@ -26,6 +26,8 @@
         android:layout_below="@id/textViewTitle"
         app:hintTextColor="@color/white"
         app:hintAnimationEnabled="true"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         app:cursorColor="@color/white"
@@ -51,6 +53,8 @@
         android:layout_height="wrap_content"
         app:hintTextColor="@color/white"
         app:hintAnimationEnabled="true"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
         android:layout_below="@id/emailTextInputLayout"
         android:layout_marginTop="16dp"
         app:passwordToggleEnabled="true"
@@ -73,17 +77,17 @@
     </com.google.android.material.textfield.TextInputLayout>
 
         
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/passwordTextInputLayout"
-            android:layout_marginTop="38dp"
-            android:backgroundTint="@color/btnlogin"
-            android:text="Login"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            app:cornerRadius="30dp"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/passwordTextInputLayout"
+        android:layout_marginTop="38dp"
+        android:backgroundTint="@color/btnlogin"
+        android:text="Login"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="30dp"/>
 
     <TextView
         android:layout_width="match_parent"

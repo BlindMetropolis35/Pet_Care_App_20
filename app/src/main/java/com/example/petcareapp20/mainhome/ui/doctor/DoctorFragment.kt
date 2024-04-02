@@ -59,7 +59,6 @@ class DoctorFragment : Fragment() {
             refreshButton.visibility = View.GONE
         }
 
-
         val searchView = view.findViewById<SearchView>(R.id.search_view_doctor_frag)
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
