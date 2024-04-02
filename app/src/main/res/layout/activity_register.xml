@@ -99,28 +99,17 @@
             android:layout_marginBottom="16dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CardbtnSignup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:text="SignUp"
-        android:layout_below="@id/passwordTextInputLayout2"
-        android:backgroundTint="@color/btnsignup"
-        app:cardCornerRadius="50dp"
-        android:layout_marginTop="38dp">
-
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSignup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:layout_below="@id/passwordTextInputLayout2"
         android:backgroundTint="@color/btnsignup"
         android:text="SignUp"
         android:textColor="@color/black"
-        android:textStyle="bold"/>
-
-    </androidx.cardview.widget.CardView>
+        android:textStyle="bold"
+        app:cornerRadius="30dp"/>
 
     <TextView
         android:id="@+id/textViewLogin"
@@ -128,8 +117,8 @@
         android:layout_height="wrap_content"
         android:text="Already have an account? Login here"
         android:textColor="@color/white"
-        android:layout_below="@id/CardbtnSignup"
-        android:layout_marginTop="18dp"
+        android:layout_below="@id/btnSignup"
+        android:layout_marginTop="8dp"
         android:padding="10dp"/>
 
 </RelativeLayout>

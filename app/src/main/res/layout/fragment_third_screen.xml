@@ -67,52 +67,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.236" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CardRegister"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Register"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="150dp"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:text="New User?"
         android:backgroundTint="@color/btntosignup"
-        app:cardCornerRadius="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="8dp">
+        app:cornerRadius="50dp"
+        android:textColor="@color/black" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Register"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:textSize="16sp"
-            android:text="New User?"
-            android:backgroundTint="@color/btntosignup"
-            android:textColor="@color/black" />
 
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CardLogin"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/Login"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="12dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/Register"
+        android:text="Already registered?"
+        android:textSize="16sp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/white"
         android:backgroundTint="@color/btnstyleonboard"
-        app:layout_constraintBottom_toTopOf="@+id/CardRegister"
-        app:cardCornerRadius="50dp">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/Login"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:text="Already registered?"
-            android:textSize="16sp"
-            android:layout_marginBottom="5dp"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/btnstyleonboard"/>
-
-    </androidx.cardview.widget.CardView>
+        app:cornerRadius="50dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

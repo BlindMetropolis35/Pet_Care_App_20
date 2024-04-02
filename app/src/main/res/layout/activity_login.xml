@@ -72,58 +72,41 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    
-    <androidx.cardview.widget.CardView
-        android:id="@+id/btnCardView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/passwordTextInputLayout"
-        android:backgroundTint="@color/btnlogin"
-        app:cardCornerRadius="50dp"
-        android:layout_marginTop="38dp">
         
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnLogin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/passwordTextInputLayout"
+            android:layout_marginTop="38dp"
             android:backgroundTint="@color/btnlogin"
             android:text="Login"
             android:textColor="@color/black"
-            android:textStyle="bold" />
-
-    </androidx.cardview.widget.CardView>
-
+            android:textStyle="bold"
+            app:cornerRadius="30dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="12sp"
         android:textColor="@color/white"
-        android:layout_below="@+id/btnCardView"
+        android:layout_below="@+id/btnLogin"
         android:layout_marginTop="75dp"
         android:gravity="center"
         android:textAlignment="center"
         android:text="Don't have an account?" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/CardViewSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnCardView"
-        android:layout_marginTop="100dp"
-        android:backgroundTint="@color/btnlogtosignup"
-        app:cardCornerRadius="50dp">
-
         <com.google.android.material.button.MaterialButton
             android:id="@+id/LogtoSignUp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnLogin"
+            android:layout_marginTop="100dp"
             android:text="Create a new account"
             android:textStyle="bold"
             android:backgroundTint="@color/btnlogtosignup"
-            android:textColor="@color/black" />
-
-    </androidx.cardview.widget.CardView>
+            android:textColor="@color/black"
+            app:cornerRadius="30dp"/>
 
     <TextView
         android:id="@+id/forgotPassword"
