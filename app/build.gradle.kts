@@ -108,4 +108,5 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.github.ZEGOCLOUD:zego_uikit_prebuilt_call_android:2.12.3")
+    implementation("com.google.android.gms:play-services-auth:20.3.0")
 }

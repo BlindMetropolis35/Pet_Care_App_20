@@ -28,24 +28,27 @@ class LoginActivity : AppCompatActivity() {
         //firebase auth
         firebaseAuth=FirebaseAuth.getInstance()
 
-        if (isUserLoggedIn()) {
-            Log.d("StartIntent","Startingintent")
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
-            Log.d("StartIntent","success")
-            return
-        }
+//        if (isUserLoggedIn()) {
+//            Log.d("StartIntent","Startingintent")
+//            val intent = Intent(this, HomeActivity::class.java)
+//            intent.flags =Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(intent)
+//            finish()
+//            Log.d("StartIntent","success")
+//            return
+//        }
 
         val btnLogin=findViewById<MaterialButton>(R.id.btnLogin)
         btnLogin.setOnClickListener{
             login()
         }
 
+        val email=findViewById<EditText>(R.id.editEmail).text
+
         val btnlogintosignup=findViewById<MaterialButton>(R.id.LogtoSignUp)
         btnlogintosignup.setOnClickListener{
             val intent=Intent(this,RegisterActivity::class.java)
+            intent.putExtra("emailToReg",email.toString())
             startActivity(intent)
             finish()
         }
@@ -53,15 +56,16 @@ class LoginActivity : AppCompatActivity() {
         val forgotPassword=findViewById<TextView>(R.id.forgotPassword)
         forgotPassword.setOnClickListener{
             val intent=Intent(this,ForgotPassword::class.java)
+            intent.putExtra("emailForgot",email.toString())
             startActivity(intent)
             finish()
         }
     }
 
-    fun isUserLoggedIn(): Boolean {
-        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        return sharedPreferences.getBoolean("isLoggedIn", false)
-    }
+//    fun isUserLoggedIn(): Boolean {
+//        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+//        return sharedPreferences.getBoolean("isLoggedIn", false)
+//    }
 
     //firebase auth
     private fun login(){
@@ -85,7 +89,7 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this){
                 if (it.isSuccessful){
                     Toast.makeText(this,"Login Successful", Toast.LENGTH_SHORT).show()
-                    saveLoginState(true)
+//                    saveLoginState(true)
                     val intent=Intent(this,HomeActivity::class.java)
                     intent.flags=Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY
                     startActivity(intent)
@@ -96,10 +100,10 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
     }
-    private fun saveLoginState(isLoggedIn: Boolean) {
-        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putBoolean("isLoggedIn", isLoggedIn)
-        editor.apply()
-    }
+//    private fun saveLoginState(isLoggedIn: Boolean) {
+//        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
+//        val editor = sharedPreferences.edit()
+//        editor.putBoolean("isLoggedIn", isLoggedIn)
+//        editor.apply()
+//    }
 }

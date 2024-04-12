@@ -25,10 +25,15 @@ class RegisterActivity : AppCompatActivity() {
 
         firebaseAuth= FirebaseAuth.getInstance()
 
+        val emailToReg=intent.getStringExtra("emailToReg")
+        val email = findViewById<EditText>(R.id.editEmail)
+        email.setText(emailToReg)
+
         val btnSignup=findViewById<MaterialButton>(R.id.btnSignup)
         btnSignup.setOnClickListener{
             signup()
         }
+
         val btnsigntologin=findViewById<TextView>(R.id.textViewLogin)
         btnsigntologin.setOnClickListener{
             val intent= Intent(this,LoginActivity::class.java)

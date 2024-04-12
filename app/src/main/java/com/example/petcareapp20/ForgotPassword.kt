@@ -2,6 +2,8 @@ package com.example.petcareapp20
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -24,6 +26,10 @@ class ForgotPassword : AppCompatActivity() {
         setContentView(R.layout.activity_forgot_password)
 
         firebaseAuth= FirebaseAuth.getInstance()
+
+        val emailfromlogin=intent.getStringExtra("emailForgot")
+        val email = findViewById<EditText>(R.id.editEmailReset)
+        email.setText(emailfromlogin)
 
         val backResettoLogin=findViewById<ImageView>(R.id.backResettoLogin)
         backResettoLogin.setOnClickListener{

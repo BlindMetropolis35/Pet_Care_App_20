@@ -1,5 +1,6 @@
 package com.example.petcareapp20.mainhome.ui.personal
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.example.petcareapp20.LoginActivity
 import com.example.petcareapp20.R
 import com.example.petcareapp20.databinding.FragmentPersonalBinding
@@ -41,8 +43,26 @@ class PersonalFragment : Fragment() {
         val account_view=view.findViewById<LinearLayout>(R.id.account_view)
         account_view.setOnClickListener{
             val intent=Intent(requireActivity(),AccountActivity::class.java)
+            intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)
-            requireActivity().finish()
+        }
+
+        val logout=view.findViewById<LinearLayout>(R.id.logout_here)
+        logout.setOnClickListener{
+            val builder = AlertDialog.Builder(requireActivity())
+            builder.setTitle("Confirm Logout")
+            builder.setMessage("Are you sure you want to log out?")
+            builder.setPositiveButton("Logout") { _, _ ->
+                firebaseAuth.signOut()
+                val intent = Intent(requireActivity(), LoginActivity::class.java)
+                startActivity(intent)
+                requireActivity().finish()
+                Toast.makeText(requireActivity(), "Logged out", Toast.LENGTH_SHORT).show()
+            }
+            builder.setNegativeButton("Cancel") { dialog, _ ->
+                dialog.dismiss()
+            }
+            builder.create().show()
         }
 
     }
