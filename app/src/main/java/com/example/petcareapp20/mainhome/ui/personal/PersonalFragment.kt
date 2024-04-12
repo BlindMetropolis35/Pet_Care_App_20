@@ -6,46 +6,47 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import com.example.petcareapp20.LoginActivity
 import com.example.petcareapp20.R
 import com.example.petcareapp20.databinding.FragmentPersonalBinding
+import com.example.petcareapp20.mainhome.ui.personal.account.AccountActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class PersonalFragment : Fragment() {
 
-    private var _binding: FragmentPersonalBinding? = null
-    lateinit var auth: FirebaseAuth
-
-    private val binding get() = _binding!!
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentPersonalBinding.inflate(inflater, container, false)
-        return binding.root
+    ): View? {
+        val view=inflater.inflate(R.layout.fragment_personal, container, false)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        auth = FirebaseAuth.getInstance()
-        val user = auth.currentUser
+        firebaseAuth = FirebaseAuth.getInstance()
+        val user = firebaseAuth.currentUser
 
-        //kondisi user sedang login atau tidak
+        val your_name_display=view.findViewById<TextView>(R.id.your_name_display)
         if (user != null) {
-            binding.edtName.setText(user.displayName)
-            binding.edtEmail.text = user.email
-
-            val logout=binding.logout
-            logout.setOnClickListener {
-                val intent = Intent(activity, LoginActivity::class.java)
-                startActivity(intent)
-            }
+            your_name_display.text = user.displayName
         }
+
+        val account_view=view.findViewById<LinearLayout>(R.id.account_view)
+        account_view.setOnClickListener{
+            val intent=Intent(requireActivity(),AccountActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
     }
 }
