@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.0-alpha02"
+agp = "8.5.0-alpha03"
 kotlin = "1.9.0"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -25,6 +25,9 @@ lifecycleViewmodelKtx = "2.7.0"
 fragmentKtx = "1.5.6"
 firebaseFirestoreKtx = "24.10.2"
 firebaseDatabase = "20.3.0"
+firebaseCrashlyticsBuildtools = "2.9.9"
+firebaseStorageKtx = "20.3.0"
+playServicesMapsVersion = "18.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -56,6 +59,9 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragmentKtx" }
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 firebase-database = { group = "com.google.firebase", name = "firebase-database", version.ref = "firebaseDatabase" }
+firebase-crashlytics-buildtools = { group = "com.google.firebase", name = "firebase-crashlytics-buildtools", version.ref = "firebaseCrashlyticsBuildtools" }
+firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage-ktx", version.ref = "firebaseStorageKtx" }
+play-services-maps-v1810 = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMapsVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

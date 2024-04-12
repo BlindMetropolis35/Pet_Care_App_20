@@ -24,5 +24,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Pet Care App 20"
 include(":app")
-include(":myapplication")
-include(":home")
