@@ -18,4 +18,9 @@
     <string name="search_hint">Search</string>
     <string name="reset_password_button">Send Reset Link</string>
     <string name="reset_password_instructions">We\'ll email you instructions on how to reset your password. Please type in your email below.</string>
+    <string name="resend_verification_later">Resend code</string>
+    <string name="send_verification_code">Send code</string>
+    <string name="verification_code_hint">Enter code</string>
+    <string name="verify">Verify</string>
+    <string name="please_note_the_prices_are_listed_according_to_vet_availability_prices_are_subject_to_change_on_vet_demand_applicable_taxes_calculated_at_checkout">Please note the prices are listed according to vet availability. Prices are subject to change on vet demand.Applicable taxes calculated at checkout</string>
 </resources>

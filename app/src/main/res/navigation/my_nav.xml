@@ -33,6 +33,12 @@
             android:id="@+id/action_viewPagerFragment_to_registerActivity"
             app:destination="@id/registerActivity" />
 
+        <action
+            android:id="@+id/action_login_to_location"
+            app:destination="@id/locationActivity"
+            app:popUpTo="@id/viewPagerFragment"
+            app:popUpToInclusive="true" />
+
     </fragment>
 
 
@@ -41,54 +47,16 @@
         android:label="LocationActivity"
         tools:layout="@layout/fragment_location"/>
 
-    <action
-        android:id="@+id/action_login_to_location"
-        app:destination="@id/locationActivity"
-        app:popUpTo="@id/viewPagerFragment"
-        app:popUpToInclusive="true" />
-
-    <activity
-        android:id="@+id/homeActivity"
-        android:name="com.example.petcareapp20.mainhome.HomeActivity"
-        android:label="HomeActivity"
-        tools:layout="@layout/activity_home"/>
-
-    <action
-        android:id="@+id/action_home_to_vets"
-        app:destination="@id/mainDoctorLists"
-        app:popUpTo="@id/homeActivity"
-        app:popUpToInclusive="true"/>
-
-    <action
-        android:id="@+id/action_continue_to_mainhome"
-        app:destination="@id/homeActivity"
-        app:popUpTo="@id/viewPagerFragment"
-        app:popUpToInclusive="true" />
-
-    <fragment
-        android:id="@+id/logout"
-        android:label="activity_logout"
-        tools:layout="@layout/activity_login" />
-
-    <action
-        android:id="@+id/action_logout_to_login"
-        app:destination="@id/logout"
-        app:popUpTo="@id/viewPagerFragment"
-        app:popUpToInclusive="true" />
     <activity
         android:id="@+id/registerActivity"
         android:name="com.example.petcareapp20.RegisterActivity"
         android:label="activity_register"
         tools:layout="@layout/activity_register" />
+
     <activity
         android:id="@+id/loginActivity"
         android:name="com.example.petcareapp20.LoginActivity"
         android:label="activity_login"
         tools:layout="@layout/activity_login" />
-    <activity
-        android:id="@+id/mainDoctorLists"
-        android:name="com.example.petcareapp20.HomeService.MainDoctorLists"
-        android:label="activity_main_doctor_lists"
-        tools:layout="@layout/activity_main_doctor_lists" />
 
 </navigation>

@@ -10,8 +10,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.petcareapp20.mainhome.HomeActivity
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.auth.User
 
 class RegisterActivity : AppCompatActivity() {
@@ -43,9 +45,11 @@ class RegisterActivity : AppCompatActivity() {
 
     }
     private fun signup() {
-        val email = findViewById<EditText>(R.id.editEmail).text.toString()
-        val password = findViewById<EditText>(R.id.editPassword).text.toString()
-        val confirmPassword = findViewById<EditText>(R.id.editConfirmPassword).text.toString()
+        val email = findViewById<TextInputEditText>(R.id.editEmail).text.toString()
+        val password = findViewById<TextInputEditText>(R.id.editPassword).text.toString()
+        val confirmPassword = findViewById<TextInputEditText>(R.id.editConfirmPassword).text.toString()
+        val firstName = findViewById<TextInputEditText>(R.id.editFirstNm).text.toString()
+        val lastName = findViewById<TextInputEditText>(R.id.editLastNm).text.toString()
 
         if (email.isBlank() && password.isBlank() && confirmPassword.isBlank()) {
             Toast.makeText(this, "Please fill in all fields*", Toast.LENGTH_SHORT).show()
@@ -59,9 +63,16 @@ class RegisterActivity : AppCompatActivity() {
         } else if (confirmPassword.isBlank()) {
             Toast.makeText(this, "Please confirm your password", Toast.LENGTH_SHORT).show()
             return
-        }
-
-        if (password != confirmPassword) {
+        }else if (firstName.isBlank() && lastName.isBlank()) {
+            Toast.makeText(this, "Please enter your name", Toast.LENGTH_SHORT).show()
+            return
+        } else if (firstName.isBlank()) {
+            Toast.makeText(this, "Please enter your first name", Toast.LENGTH_SHORT).show()
+            return
+        }else if (lastName.isBlank()) {
+            Toast.makeText(this, "Please enter your last name", Toast.LENGTH_SHORT).show()
+            return
+        }else if (password != confirmPassword) {
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show()
             return
         }
@@ -71,6 +82,12 @@ class RegisterActivity : AppCompatActivity() {
                 if (it.isSuccessful) {
                     val user = firebaseAuth.currentUser
                     if (user != null) {
+                        val fullName = "$firstName $lastName"
+                        user.updateProfile(
+                            UserProfileChangeRequest.Builder()
+                                .setDisplayName(fullName)
+                                .build()
+                        )
                         sendVerificationEmail(user)
                     }
                     val intent = Intent(this, HomeActivity::class.java)

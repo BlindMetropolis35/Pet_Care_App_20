@@ -3,6 +3,7 @@ package com.example.petcareapp20.mainhome.ui.personal
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +11,11 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import com.example.petcareapp20.ComingSoon
 import com.example.petcareapp20.LoginActivity
 import com.example.petcareapp20.R
 import com.example.petcareapp20.databinding.FragmentPersonalBinding
+import com.example.petcareapp20.mainhome.HomeActivity
 import com.example.petcareapp20.mainhome.ui.personal.account.AccountActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -43,7 +46,36 @@ class PersonalFragment : Fragment() {
         val account_view=view.findViewById<LinearLayout>(R.id.account_view)
         account_view.setOnClickListener{
             val intent=Intent(requireActivity(),AccountActivity::class.java)
-            intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TOP
+            startActivity(intent)
+        }
+
+        val setting_view=view.findViewById<LinearLayout>(R.id.setting_view)
+        setting_view.setOnClickListener{
+            val intent=Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val notifications_view=view.findViewById<LinearLayout>(R.id.notifications_view)
+        notifications_view.setOnClickListener{
+            val intent=Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val help_view=view.findViewById<LinearLayout>(R.id.help_view)
+        help_view.setOnClickListener{
+            val intent=Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val support_view=view.findViewById<LinearLayout>(R.id.support_view)
+        support_view.setOnClickListener{
+            val intent=Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val about_view=view.findViewById<LinearLayout>(R.id.about_view)
+        about_view.setOnClickListener{
+            val intent=Intent(requireActivity(), ComingSoon::class.java)
             startActivity(intent)
         }
 

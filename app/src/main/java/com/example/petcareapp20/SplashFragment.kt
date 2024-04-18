@@ -20,6 +20,8 @@ import kotlin.math.sign
 
 class SplashFragment : Fragment() {
 
+    private lateinit var firebaseAuth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,17 +29,19 @@ class SplashFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_splash, container, false)
 
-        Handler().postDelayed({
+        firebaseAuth=FirebaseAuth.getInstance()
+        val user=firebaseAuth.currentUser
 
-                if (FirebaseAuth.getInstance().currentUser != null) {
-                    val intent = Intent(context, HomeActivity::class.java)
+        Handler().postDelayed({
+                if (user != null) {
+                    val intent = Intent(requireActivity(), HomeActivity::class.java)
                     startActivity(intent)
                     requireActivity().finish()
                 }
                 else {
                     findNavController().navigate(R.id.action_splashFragment_to_viewPagerFragment)
                 }
-        }, 1000)
+        }, 2000)
 
         return view
     }

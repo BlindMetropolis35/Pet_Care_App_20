@@ -84,8 +84,8 @@ class DoctorFragment : Fragment() {
             vets.enqueue(object : Callback<DoctorCallList> {
                 override fun onResponse(call: Call<DoctorCallList>, response: Response<DoctorCallList>
                 ) {
-                    Log.d("Request Vets", "Request accepted $response.body")
                     val vets = response.body()
+                    Log.d("Request Vets", "Request accepted $vets")
                     if (vets != null) {
                         val filteredVets = vets.vetinfos.filter {
                             it.vet_name.contains(searchQuery, ignoreCase = true) ?: false ||

@@ -458,14 +458,14 @@
         android:scrollHorizontally="true"
         android:layout_marginTop="6dp"
         android:singleLine="true"
-        android:text="Please note the prices are listed according to vet availability. Prices are subject to change on vet demand.Applicable taxes calculated at checkout"
+        android:text="@string/please_note_the_prices_are_listed_according_to_vet_availability_prices_are_subject_to_change_on_vet_demand_applicable_taxes_calculated_at_checkout"
         android:textColor="@color/lightRed"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout21" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bookButton"
         android:layout_width="148dp"
         android:layout_height="58dp"

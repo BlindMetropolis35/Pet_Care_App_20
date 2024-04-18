@@ -15,6 +15,7 @@ import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.petcareapp20.ComingSoon
 import com.example.petcareapp20.HomeService.AllServicesTogether
 import com.example.petcareapp20.HomeService.MainDoctorLists
 import com.example.petcareapp20.R
@@ -54,6 +55,30 @@ class HomeFragment : Fragment() {
         val findAVet = view.findViewById<LinearLayout>(R.id.findAVet)
         findAVet.setOnClickListener {
             val intent = Intent(requireActivity(), MainDoctorLists::class.java)
+            startActivity(intent)
+        }
+
+        val donate_card=view.findViewById<LinearLayout>(R.id.donate_card)
+        donate_card.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val insurance_card=view.findViewById<LinearLayout>(R.id.insurance_card)
+        insurance_card.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val buy_med_card=view.findViewById<LinearLayout>(R.id.buy_med_card)
+        buy_med_card.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val consult_card=view.findViewById<LinearLayout>(R.id.consult_card)
+        consult_card.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
             startActivity(intent)
         }
 
@@ -104,6 +129,30 @@ class HomeFragment : Fragment() {
         }
 
         getdoctorImages()
+
+        val banner11=view.findViewById<LinearLayout>(R.id.banner11)
+        banner11.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val banner22=view.findViewById<LinearLayout>(R.id.banner22)
+        banner22.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val banner33=view.findViewById<LinearLayout>(R.id.banner33)
+        banner33.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
+
+        val see_more3=view.findViewById<TextView>(R.id.see_more3)
+        see_more3.setOnClickListener{
+            val intent= Intent(requireActivity(), ComingSoon::class.java)
+            startActivity(intent)
+        }
 
         return view
     }

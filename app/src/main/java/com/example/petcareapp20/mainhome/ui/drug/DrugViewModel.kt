@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DrugViewModel: ViewModel() {
-
     private val _text = MutableLiveData<String>().apply {
         value = ""
     }

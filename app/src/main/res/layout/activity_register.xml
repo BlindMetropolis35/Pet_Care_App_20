@@ -22,15 +22,71 @@
         />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstNameTextInputLayout"
+        android:layout_width="match_parent"
+        app:hintTextColor="@color/white"
+        app:hintAnimationEnabled="true"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:cursorColor="@color/white"
+        android:layout_below="@id/textViewTitle"
+        app:boxStrokeColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/lightGray"
+        app:boxStrokeErrorColor="@color/lightRed">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editFirstNm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lastNameTextInputLayout"
+        android:layout_width="match_parent"
+        app:hintTextColor="@color/white"
+        app:hintAnimationEnabled="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cursorColor="@color/white"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        android:layout_below="@id/firstNameTextInputLayout"
+        app:boxStrokeColor="@color/white"
+        app:boxBackgroundMode="outline"
+        app:boxBackgroundColor="@color/lightGray"
+        app:boxStrokeErrorColor="@color/lightRed">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editLastNm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:padding="8dp"
+            android:textColor="@color/white"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailTextInputLayout"
         android:layout_width="match_parent"
         app:hintTextColor="@color/white"
         app:hintAnimationEnabled="true"
         app:boxCornerRadiusBottomStart="20dp"
         app:boxCornerRadiusTopEnd="20dp"
-        android:layout_below="@id/textViewTitle"
+        android:layout_below="@id/lastNameTextInputLayout"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="16dp"
         app:cursorColor="@color/white"
         app:boxStrokeColor="@color/white"
         app:boxBackgroundMode="outline"
@@ -72,8 +128,7 @@
             android:hint="Password"
             android:textColorHint="@color/lightGray"
             android:inputType="textPassword"
-            android:padding="8dp"
-            android:layout_marginBottom="16dp" />
+            android:padding="8dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

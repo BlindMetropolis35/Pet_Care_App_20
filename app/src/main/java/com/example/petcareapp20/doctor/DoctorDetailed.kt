@@ -24,6 +24,7 @@ import com.zegocloud.uikit.prebuilt.call.invite.ZegoUIKitPrebuiltCallInvitationS
 import com.zegocloud.uikit.prebuilt.call.invite.widget.ZegoSendCallInvitationButton
 import com.zegocloud.uikit.service.defines.ZegoUIKitUser
 import com.example.petcareapp20.BuildConfig
+import com.example.petcareapp20.ComingSoon
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -99,8 +100,11 @@ class DoctorDetailed : AppCompatActivity() {
             }
         }
 
-//        initVoiceButton()
-//        initVideoButton()
+        val bookButton=findViewById<MaterialButton>(R.id.bookButton)
+        bookButton.setOnClickListener{
+            val intent= Intent(this, ComingSoon::class.java)
+            startActivity(intent)
+        }
 
     }
 

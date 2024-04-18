@@ -4,8 +4,12 @@
     package="com.example.petcareapp20">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -23,8 +27,18 @@
         android:theme="@style/Theme.PetCareApp20"
         tools:targetApi="31">
         <activity
-            android:name=".mainhome.ui.personal.account.AccountActivity"
+            android:name=".ComingSoon"
             android:exported="false" />
+        <activity
+            android:name=".drug.DrugCheckout"
+            android:exported="false" />
+        <activity
+            android:name=".mainhome.ui.drug.DrugDetailed"
+            android:exported="false" />
+        <activity
+            android:name=".mainhome.ui.personal.account.AccountActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".mainhome.ui.doctor.DoctorFragDetailed"
             android:exported="false" />
@@ -67,18 +81,6 @@
             android:name=".bubble.TxSuccess"
             android:exported="false" />
         <activity
-            android:name=".drug.NextPayment"
-            android:exported="false" />
-        <activity
-            android:name=".drug.DrugCheckout"
-            android:exported="false" />
-        <activity
-            android:name=".drug.DetailDrug"
-            android:exported="false" />
-        <activity
-            android:name=".drug.BlackDrug"
-            android:exported="false" />
-        <activity
             android:name=".donation.DonationSuccess"
             android:exported="false" />
         <activity
@@ -104,12 +106,10 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:exported="false"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" />
+            android:exported="true" />
     </application>
 
 </manifest>

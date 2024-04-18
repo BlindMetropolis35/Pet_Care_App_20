@@ -109,4 +109,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("com.github.ZEGOCLOUD:zego_uikit_prebuilt_call_android:2.12.3")
     implementation("com.google.android.gms:play-services-auth:20.3.0")
+    implementation("com.hbb20:ccp:2.0.9")
+    implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.android.play:integrity:1.3.0")
 }

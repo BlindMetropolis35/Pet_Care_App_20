@@ -140,6 +140,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/donate_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -171,6 +172,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/insurance_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -202,6 +204,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/buy_med_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -233,6 +236,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/consult_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
@@ -533,7 +537,7 @@
 
 
             <TextView
-                android:id="@+id/textView003"
+                android:id="@+id/see_more3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
@@ -565,6 +569,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/banner11"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -588,6 +593,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/banner22"
                         android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -600,6 +606,30 @@
                             android:layout_width="wrap_content"
                             android:layout_height="150dp"
                             android:src="@drawable/bannerbawah1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Donate Now"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/banner33"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:padding="12dp"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/banner3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="150dp"
+                            android:src="@drawable/bannerbawah" />
 
                         <TextView
                             android:layout_width="wrap_content"

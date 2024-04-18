@@ -25,6 +25,7 @@
         android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginTop="4dp"
+        app:queryBackground="@color/lightGray"
         android:background="@color/lightGray"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"

@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.example.petcareapp20.BuildConfig
+import com.example.petcareapp20.ComingSoon
 import com.example.petcareapp20.HomeService.MainDoctorLists
 import com.example.petcareapp20.R
 import com.example.petcareapp20.retrofit.DoctorCallList
@@ -93,8 +94,11 @@ class DoctorFragDetailed : AppCompatActivity() {
             }
         }
 
-//        initVoiceButton()
-//        initVideoButton()
+        val bookButton=findViewById<MaterialButton>(R.id.bookButton)
+        bookButton.setOnClickListener{
+            val intent= Intent(this, ComingSoon::class.java)
+            startActivity(intent)
+        }
 
     }
 

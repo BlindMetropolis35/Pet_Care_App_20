@@ -2,92 +2,71 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:background="@color/black"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".mainhome.ui.drug.DrugFragment">
 
-
-    <ScrollView
+    <TextView
+        android:id="@+id/textView12"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:overScrollMode="never"
-        android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="40dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Drug Store"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="390dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/search_view_drug_frag"
+        android:layout_width="0dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="4dp"
+        app:iconifiedByDefault="false"
+        android:padding="8dp"
+        app:queryBackground="@color/lightGray"
+        android:background="@color/lightGray"
+        app:queryHint="Search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
-            <ImageView
-                android:id="@+id/apotik1"
-                android:layout_width="371dp"
-                android:layout_height="158dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.457"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.145"
-                app:srcCompat="@drawable/apotik1" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drugcards"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_view_drug_frag"
+        app:layout_constraintVertical_bias="0.0" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="450dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-            <ImageView
-                android:id="@+id/apotik2"
-                android:layout_width="371dp"
-                android:layout_height="158dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="348dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.473"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/apotik1"
-                app:layout_constraintVertical_bias="0.051"
-                app:srcCompat="@drawable/apotik2" />
-
-            <ImageView
-                android:id="@+id/dr3"
-                android:layout_width="371dp"
-                android:layout_height="158dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.476"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/apotik2"
-                app:layout_constraintVertical_bias="0.045"
-                app:srcCompat="@drawable/apotik3"/>
-
-            <ImageView
-                android:id="@+id/apotik4"
-                android:layout_width="371dp"
-                android:layout_height="158dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.476"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dr3"
-                app:layout_constraintVertical_bias="0.045"
-                app:srcCompat="@drawable/apotik4" />
-
-
-            <ImageView
-                android:id="@+id/imageView25"
-                android:layout_width="371dp"
-                android:layout_height="73dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/apotik1"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.526"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:srcCompat="@drawable/apotiksearch" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/refresh_button_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
+        android:text="Refresh"
+        android:textColor="@color/white"
+        style="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+        android:backgroundTint="@color/lightGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
