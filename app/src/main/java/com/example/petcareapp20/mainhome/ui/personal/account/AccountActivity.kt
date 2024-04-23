@@ -1,17 +1,27 @@
 package com.example.petcareapp20.mainhome.ui.personal.account
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
+import com.bumptech.glide.Glide
 import com.example.petcareapp20.R
 import com.example.petcareapp20.mainhome.ui.personal.PersonalFragment
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +30,7 @@ import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.storage.FirebaseStorage
 import com.hbb20.CountryCodePicker
 import java.util.concurrent.TimeUnit
 
@@ -29,6 +40,8 @@ class AccountActivity : AppCompatActivity() {
     private var verificationId: String? = null
     private var verNewMail= StringBuilder()
     private var editYourPhone= StringBuilder()
+    private val REQUEST_IMAGE_PICKER = 200
+    private val REQUEST_READ_STORAGE_PERMISSION = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +56,18 @@ class AccountActivity : AppCompatActivity() {
             val intent = Intent(this, PersonalFragment::class.java)
             startActivity(intent)
             finish()
+        }
+
+        //profile photo
+
+        val profile_img_layout = findViewById<LinearLayout>(R.id.profile_img_layout)
+        profile_img_layout.setOnClickListener {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_STORAGE_PERMISSION)
+            } else {
+                val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(intent, REQUEST_IMAGE_PICKER)
+            }
         }
 
         //Name
@@ -191,6 +216,65 @@ class AccountActivity : AppCompatActivity() {
         updatePassword.setOnClickListener{
             savePassword()
         }
+    }
+
+    private fun requestStoragePermission() {
+        ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_READ_STORAGE_PERMISSION)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String?>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == REQUEST_READ_STORAGE_PERMISSION) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(intent, REQUEST_IMAGE_PICKER)
+            } else {
+                val shouldShowRequestPermissionRationale = ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                if (shouldShowRequestPermissionRationale) {
+                    // Explain why permission is needed (already done in toast message)
+                    Snackbar.make(findViewById(android.R.id.content), "Storage permission is required to access your profile picture.", Snackbar.LENGTH_LONG)
+                        .setAction("Grant Permission") { requestStoragePermission() }
+                        .show()
+                } else {
+                    // User might have denied permanently, guide them to app settings
+                    Toast.makeText(this, "Service not available", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_IMAGE_PICKER && resultCode == RESULT_OK) {
+            val selectedImageUri = data?.data ?: return
+
+            uploadImageToFirebase(selectedImageUri)
+        }
+    }
+
+    private fun uploadImageToFirebase(imageUri: Uri) {
+        val storageReference = FirebaseStorage.getInstance().reference
+            .child("profile_images")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
+
+        storageReference.putFile(imageUri)
+            .addOnSuccessListener { snapshot ->
+                // Upload successful
+                val downloadUrl = snapshot.metadata?.reference?.downloadUrl.toString()
+                if (downloadUrl != null) {
+                    updateUserProfileImageUrl(downloadUrl)
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Handle upload failure
+                Toast.makeText(this, "Image upload failed: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+    private fun updateUserProfileImageUrl(imageUrl: String) {
+        val user_profile=findViewById<ImageView>(R.id.user_profile)
+        Glide.with(this).load(imageUrl).into(user_profile)
     }
 
     private fun savePassword() {

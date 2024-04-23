@@ -48,7 +48,7 @@
                         android:layout_height="match_parent"
                         android:adjustViewBounds="true"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/paracetamol" />
+                        android:src="@drawable/drug"/>
 
                 </androidx.cardview.widget.CardView>
 

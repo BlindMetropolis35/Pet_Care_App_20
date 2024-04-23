@@ -28,6 +28,7 @@ android {
         val APP_ID = properties.getProperty("MY_Zego_APP_ID")
         val APP_SIGN = properties.getProperty("MY_Zego_APP_SIGN")
         val BASE_URL= properties.getProperty("BASE_URL")
+        val APPLICATION_ID = properties.getProperty("APPLICATION_ID")
 
         buildConfigField("long", "APP_ID", APP_ID)
         buildConfigField("String", "APP_SIGN", APP_SIGN)
@@ -54,7 +55,6 @@ android {
         compose = true
         dataBinding = true
         viewBinding = true
-        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -113,4 +113,5 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.android.play:integrity:1.3.0")
+    implementation("com.google.firebase:firebase-storage:20.2.0")
 }

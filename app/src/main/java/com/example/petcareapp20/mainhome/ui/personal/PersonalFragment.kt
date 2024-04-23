@@ -17,6 +17,7 @@ import com.example.petcareapp20.R
 import com.example.petcareapp20.databinding.FragmentPersonalBinding
 import com.example.petcareapp20.mainhome.HomeActivity
 import com.example.petcareapp20.mainhome.ui.personal.account.AccountActivity
+import com.example.petcareapp20.mainhome.ui.personal.chatsupport.ui.ChatBotActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class PersonalFragment : Fragment() {
@@ -69,7 +70,7 @@ class PersonalFragment : Fragment() {
 
         val support_view=view.findViewById<LinearLayout>(R.id.support_view)
         support_view.setOnClickListener{
-            val intent=Intent(requireActivity(), ComingSoon::class.java)
+            val intent=Intent(requireActivity(), ChatBotActivity::class.java)
             startActivity(intent)
         }
 

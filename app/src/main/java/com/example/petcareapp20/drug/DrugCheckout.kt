@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.trimmedLength
 import com.bumptech.glide.Glide
 import com.example.petcareapp20.R
 import com.example.petcareapp20.mainhome.ui.drug.DrugDetailed
@@ -45,53 +46,37 @@ class DrugCheckout : AppCompatActivity() {
             finish()
         }
 
-        val qty_dec = findViewById<MaterialButton>(R.id.qty_dec)
-        if (qtyCount>1) {
-            qty_dec.isEnabled=true
-            qty_dec.setOnClickListener {
+        val qtyDecrementButton  = findViewById<MaterialButton>(R.id.qty_dec )
+        val qtyIncrementButton =findViewById<MaterialButton>(R.id.qty_inc )
+
+        updateQuantityButtons(qtyCount)
+
+        qtyDecrementButton.setOnClickListener {
+            if (qtyCount > 1) {
                 qtyCount--
-                return@setOnClickListener
+                updateQuantityButtons(qtyCount)
                 updateOrderTotal()
-            }
-        } else{
-            qty_dec.isEnabled=false
-            qty_dec.setOnClickListener {
-                Toast.makeText(this,"Min. qty should be 1", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
             }
         }
 
-        val qty_inc=findViewById<MaterialButton>(R.id.qty_inc)
-        if (qtyCount<5) {
-            qty_inc.isEnabled = true
-            qty_inc.setOnClickListener {
+        qtyIncrementButton.setOnClickListener {
+            if (qtyCount < 5) {
                 qtyCount++
-                return@setOnClickListener
+                updateQuantityButtons(qtyCount)
                 updateOrderTotal()
-            }
-        }else{
-            qty_dec.isEnabled=false
-            qty_dec.setOnClickListener {
-                Toast.makeText(this,"Max qty. can be 5", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
             }
         }
 
-        val qty_count=findViewById<TextView>(R.id.qty_count)
-        qty_count.text=qtyCount.toString().trim()
-
-        updateOrderTotal()
-
-        if (qtyCount>0) {
-            val proceed_payment = findViewById<MaterialButton>(R.id.proceed_payment)
-            proceed_payment.setOnClickListener {
+        val proceed_payment = findViewById<MaterialButton>(R.id.proceed_payment)
+        proceed_payment.setOnClickListener {
+            if (qtyCount>0) {
                 val intent = Intent(this, DrugTxSuccessful::class.java)
                 intent.putExtra("drugId", drug_id)
                 startActivity(intent)
                 finish()
+            }else{
+                Toast.makeText(this,"Min. qty should be 1", Toast.LENGTH_SHORT).show()
             }
-        }else{
-            Toast.makeText(this,"Min. qty should be 1", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -105,6 +90,7 @@ class DrugCheckout : AppCompatActivity() {
                         val matchingDrug = drugList.druginfos.find { it._id == doctorId }
                         if (matchingDrug != null) {
                             updateUI(matchingDrug)
+                            updateOrderTotal()
                         } else {
                             // Handle error
                             Toast.makeText(
@@ -164,11 +150,22 @@ class DrugCheckout : AppCompatActivity() {
             .append(total_order)
 
         val order_total_price=findViewById<TextView>(R.id.order_total_price)
-        order_total_price.text=new_total
+        order_total_price.text=new_total.trim()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         qtyCount==1
+    }
+
+    private fun updateQuantityButtons(currentQty: Int) {
+        val qtyDecrementButton  = findViewById<MaterialButton>(R.id.qty_dec )
+        val qtyIncrementButton =findViewById<MaterialButton>(R.id.qty_inc )
+        val qty_count=findViewById<TextView>(R.id.qty_count)
+
+        qtyDecrementButton.isEnabled = currentQty > 1
+        qtyIncrementButton.isEnabled = currentQty < 5
+
+        qty_count.text = currentQty.toString().trim()
     }
 }
