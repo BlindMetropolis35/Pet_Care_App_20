@@ -1,10 +1,10 @@
-package com.example.petcareapp20.mainhome.ui.donation
+package com.example.petcareapp20.mainhome.ui.scanner
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DonationViewModel: ViewModel() {
+class CameraViewModel: ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = ""

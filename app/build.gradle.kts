@@ -28,7 +28,6 @@ android {
         val APP_ID = properties.getProperty("MY_Zego_APP_ID")
         val APP_SIGN = properties.getProperty("MY_Zego_APP_SIGN")
         val BASE_URL= properties.getProperty("BASE_URL")
-        val APPLICATION_ID = properties.getProperty("APPLICATION_ID")
 
         buildConfigField("long", "APP_ID", APP_ID)
         buildConfigField("String", "APP_SIGN", APP_SIGN)

@@ -11,7 +11,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_Home_page">Home page</string>
     <string name="title_Drugs">Drugs</string>
-    <string name="title_Donations">Donations</string>
+    <string name="title_Scanner">Scanner</string>
     <string name="title_Vets">Vets</string>
     <string name="title_Account">Account</string>
     <string name="title_activity_fsdaffgfge">fsdaffgfge</string>
@@ -23,4 +23,10 @@
     <string name="verification_code_hint">Enter code</string>
     <string name="verify">Verify</string>
     <string name="please_note_the_prices_are_listed_according_to_vet_availability_prices_are_subject_to_change_on_vet_demand_applicable_taxes_calculated_at_checkout">Please note the prices are listed according to vet availability. Prices are subject to change on vet demand.Applicable taxes calculated at checkout</string>
+    <string name="scan_disease">Scan Disease</string>
+    <string name="follow_panduan">Follow these instructions:</string>
+    <string name="bullet_text"><![CDATA[&#8226; Find an area with good lighting \\n&#8226; Hold your device steady and level with the object. The object could be rash, furr loss, or open wound in your pet\\\'s skin. \\n&#8226; Position the object according to the guide frame provided on the screen.Focus only on the object you want to capture. \\n&#8226; Press the capture button to get a clear photo]]></string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="check_disease">Check Disease</string>
 </resources>

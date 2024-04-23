@@ -13,9 +13,9 @@
         android:title="@string/title_Drugs" />
 
     <item
-        android:id="@+id/navigation_donation"
-        android:icon="@drawable/donation"
-        android:title="@string/title_Donations" />
+        android:id="@+id/navigation_scanner"
+        android:icon="@drawable/baseline_fullscreen_24"
+        android:title="@string/title_Scanner" />
 
     <item
         android:id="@+id/navigation_vets"

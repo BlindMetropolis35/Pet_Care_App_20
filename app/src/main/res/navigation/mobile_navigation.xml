@@ -16,10 +16,10 @@
         android:label="fragment_drug"
         tools:layout="@layout/fragment_drug" />
     <fragment
-        android:id="@+id/navigation_donation"
-        android:name="com.example.petcareapp20.mainhome.ui.donation.DonationFragment"
+        android:id="@+id/navigation_scanner"
+        android:name="com.example.petcareapp20.mainhome.ui.scanner.CameraFragment"
         android:label="fragment_donation"
-        tools:layout="@layout/fragment_donation" />
+        tools:layout="@layout/fragment_camera" />
     <fragment
         android:id="@+id/navigation_vets"
         android:name="com.example.petcareapp20.mainhome.ui.doctor.DoctorFragment"

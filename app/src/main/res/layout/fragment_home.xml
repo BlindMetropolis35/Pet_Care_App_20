@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
+        android:layout_marginBottom="?attr/actionBarSize"
         android:scrollbars="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,7 +24,7 @@
                 android:id="@+id/textView10"
                 android:layout_width="177dp"
                 android:layout_height="44dp"
-                android:text="Find a vet"
+                android:text="Good"
                 android:textColor="@color/blue"
                 android:textSize="34sp"
                 android:textStyle="bold"
@@ -38,7 +39,7 @@
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="near you.."
+                android:text="morning.."
                 android:textColor="@color/white"
                 android:textSize="34sp"
                 android:textStyle="bold"
@@ -90,8 +91,6 @@
 
             <HorizontalScrollView
                 android:id="@+id/horizontalScrollView"
-                android:scrollbarThumbHorizontal="@color/white"
-                android:scrollbarSize="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fillViewport="true"
@@ -289,8 +288,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="18dp"
                 android:layout_marginStart="16dp"
-                android:text="Docs"
-                android:textColor="@color/white"
+                android:text="Doctors"
+                android:textColor="@color/blue"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView01"
@@ -314,8 +313,6 @@
 
             <HorizontalScrollView
                     android:id="@+id/horizontalScrollView2"
-                    android:scrollbarThumbHorizontal="@color/white"
-                    android:scrollbarSize="2dp"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:layout_marginTop="10dp"
@@ -512,7 +509,7 @@
                 android:layout_height="wrap_content"
                 android:text="Donations"
                 android:textSize="16sp"
-                android:textColor="@color/blue"
+                android:textColor="@color/white"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"
@@ -525,7 +522,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="Pet"
-                android:textColor="@color/white"
+                android:textColor="@color/blue"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textView001"
@@ -552,8 +549,6 @@
                 android:id="@+id/horizontalScrollView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scrollbarSize="2dp"
-                android:scrollbarThumbHorizontal="@color/white"
                 android:layout_marginBottom="5dp"
                 android:fillViewport="true"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -627,6 +622,143 @@
 
                         <ImageView
                             android:id="@+id/banner3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="150dp"
+                            android:src="@drawable/bannerbawah" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Donate Now"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textView0011"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Games and"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView3" />
+
+            <TextView
+                android:id="@+id/textView0022"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="More"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textView001"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.203"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textView0011"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <TextView
+                android:id="@+id/see_more33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="16dp"
+                android:text="See more"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView3" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView33"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView0011"
+                app:layout_constraintVertical_bias="0.063"
+                tools:ignore="SpeakableTextPresentCheck">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/banner111"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:padding="12dp"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/banner110"
+                            android:layout_width="wrap_content"
+                            android:layout_height="150dp"
+                            android:src="@drawable/bannerbawah" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Donate Now"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/banner222"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/banner220"
+                            android:layout_width="wrap_content"
+                            android:layout_height="150dp"
+                            android:src="@drawable/bannerbawah1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Donate Now"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/banner333"
+                        android:layout_width="250dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:padding="12dp"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/banner330"
                             android:layout_width="wrap_content"
                             android:layout_height="150dp"
                             android:src="@drawable/bannerbawah" />
