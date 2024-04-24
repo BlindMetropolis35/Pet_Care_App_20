@@ -28,6 +28,8 @@ android {
         val APP_ID = properties.getProperty("MY_Zego_APP_ID")
         val APP_SIGN = properties.getProperty("MY_Zego_APP_SIGN")
         val BASE_URL= properties.getProperty("BASE_URL")
+        val POKI_URL= properties.getProperty("POKI_URL")
+        val ADOPT_URL= properties.getProperty("ADOPT_URL")
 
         buildConfigField("long", "APP_ID", APP_ID)
         buildConfigField("String", "APP_SIGN", APP_SIGN)
@@ -51,6 +53,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig=true
         compose = true
         dataBinding = true
         viewBinding = true

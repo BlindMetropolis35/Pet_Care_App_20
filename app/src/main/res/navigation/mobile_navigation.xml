@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/navigation_scanner"
         android:name="com.example.petcareapp20.mainhome.ui.scanner.CameraFragment"
-        android:label="fragment_donation"
+        android:label="fragment_scanner"
         tools:layout="@layout/fragment_camera" />
     <fragment
         android:id="@+id/navigation_vets"

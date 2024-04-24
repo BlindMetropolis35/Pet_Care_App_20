@@ -14,8 +14,11 @@ import android.widget.LinearLayout
 import android.widget.SearchView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import com.bumptech.glide.Glide
+import com.example.petcareapp20.BuildConfig
 import com.example.petcareapp20.ComingSoon
+import com.example.petcareapp20.DetailActivity
 import com.example.petcareapp20.HomeService.AllServicesTogether
 import com.example.petcareapp20.HomeService.MainDoctorLists
 import com.example.petcareapp20.R
@@ -27,6 +30,9 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class HomeFragment : Fragment() {
+
+    val POKI_URL= BuildConfig.POKI_URL
+    val ADOPT_URL= BuildConfig.ADOPT_URL
 
     private var doctorList = mutableListOf<VetData>()
     private var shuffleddoctorList = mutableListOf<VetData>()
@@ -80,6 +86,20 @@ class HomeFragment : Fragment() {
         consult_card.setOnClickListener{
             val intent= Intent(requireActivity(), ComingSoon::class.java)
             startActivity(intent)
+        }
+
+        val banner110=view.findViewById<CardView>(R.id.banner110)
+        banner110.setOnClickListener{
+            val intent=Intent(requireActivity(), DetailActivity::class.java)
+            intent.putExtra("CONTENT_URL",POKI_URL)
+            requireActivity().startActivity(intent)
+        }
+
+        val banner330=view.findViewById<CardView>(R.id.banner330)
+        banner330.setOnClickListener{
+            val intent=Intent(requireActivity(), DetailActivity::class.java)
+            intent.putExtra("CONTENT_URL",ADOPT_URL)
+            requireActivity().startActivity(intent)
         }
 
         doctorImageViews =arrayOf(view.findViewById(R.id.doctorimg1),

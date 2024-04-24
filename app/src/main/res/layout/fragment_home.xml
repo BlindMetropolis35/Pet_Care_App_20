@@ -709,35 +709,20 @@
                         android:orientation="vertical"
                         android:gravity="center">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:id="@+id/banner110"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="150dp"
-                            android:src="@drawable/bannerbawah" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Donate Now"
-                            android:textColor="@color/white"
-                            android:textSize="16sp"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:id="@+id/banner222"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:orientation="vertical"
-                        android:padding="12dp"
-                        android:gravity="center">
+                            app:cardCornerRadius="20dp"
+                            android:elevation="4dp">
 
                         <ImageView
-                            android:id="@+id/banner220"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="150dp"
-                            android:src="@drawable/bannerbawah1" />
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/games_hd" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -757,11 +742,19 @@
                         android:orientation="vertical"
                         android:gravity="center">
 
-                        <ImageView
+                        <androidx.cardview.widget.CardView
                             android:id="@+id/banner330"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            app:cardCornerRadius="20dp"
+                            android:elevation="4dp">
+
+                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="150dp"
-                            android:src="@drawable/bannerbawah" />
+                            android:src="@drawable/adopt_dog" />
+
+                        </androidx.cardview.widget.CardView>
 
                         <TextView
                             android:layout_width="wrap_content"
