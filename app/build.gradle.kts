@@ -30,10 +30,14 @@ android {
         val BASE_URL= properties.getProperty("BASE_URL")
         val POKI_URL= properties.getProperty("POKI_URL")
         val ADOPT_URL= properties.getProperty("ADOPT_URL")
+        val DONATE_URL=properties.getProperty("DONATE_URL")
 
         buildConfigField("long", "APP_ID", APP_ID)
         buildConfigField("String", "APP_SIGN", APP_SIGN)
         buildConfigField("String", "BASE_URL", BASE_URL)
+        buildConfigField("String", "POKI_URL", POKI_URL)
+        buildConfigField("String", "ADOPT_URL", ADOPT_URL)
+        buildConfigField("String", "DONATE_URL", DONATE_URL)
     }
 
     buildTypes {
