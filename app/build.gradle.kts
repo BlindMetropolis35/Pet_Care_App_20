@@ -34,6 +34,8 @@ android {
         buildConfigField("long", "APP_ID", APP_ID)
         buildConfigField("String", "APP_SIGN", APP_SIGN)
         buildConfigField("String", "BASE_URL", BASE_URL)
+        buildConfigField("String", "POKI_URL", POKI_URL)
+        buildConfigField("String", "ADOPT_URL", ADOPT_URL)
     }
 
     buildTypes {
